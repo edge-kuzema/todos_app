@@ -2,11 +2,54 @@ body {
   background: #f5f5f5;
 }
 
+
+.pagination {
+  ul{
+    list-style: none;
+    li{
+      display: inline;
+      a {
+        color: darkslategray;
+        text-decoration: none;
+        background-color: white;
+        margin: 5px 1px 2px 5px;
+        padding: 2px;
+        border-radius: 8%;
+        border: 1px solid lightgray;
+        &:hover {
+          color: black;
+        }
+      }
+
+      &.active {
+        a{
+          color: darkred;
+          border-color: darkred;
+        }
+      }
+      &.disabled {
+        a {
+          opacity: 0.3;
+          cursor: no-drop;
+        }
+      }
+    }
+  }
+}
+
+.text {
+  margin-bottom: 5px;
+  input {
+    outline: none;
+  }
+}
+
 .count {display: inline-block;
   float: left;
   text-decoration: none;
   margin-left: 20px;
   color: dimgray;
+  margin-top: 5px;
 }
 
 .link_all{display: inline-block;
@@ -14,6 +57,7 @@ body {
   text-decoration: none;
   margin-left: 90px;
   color: dimgray;
+  margin-top: 5px;
 }
 
 .link_active {display: inline-block;
@@ -21,6 +65,7 @@ body {
   text-decoration: none;
   padding-left: 20px;
   color: dimgray;
+  margin-top: 5px;
 
 }
 
@@ -29,13 +74,15 @@ body {
   text-decoration: none;
   padding-left: 20px;
   color: dimgray;
-  padding-bottom: 5px; }
+  padding-bottom: 5px;
+  margin-top: 5px;}
 
 .clear {display: inline-block;
   float: right;
   text-decoration: none;
   margin-right: 20px;
   color: dimgray;
+  margin-top: 5px;
 
 }
 
@@ -90,10 +137,8 @@ h1 {position: absolute;
   float: right;
   font-size: 30px;
   color: #cc9a9a;
-  text-decoration: none;
   .icon {
     display: none;
-    text-decoration: none;
 
   }
 }
@@ -101,6 +146,7 @@ h1 {position: absolute;
 .todo:hover {
   a {
     text-decoration: none;
+    border: none;
   }
   .icon {
     display: inline;
@@ -119,6 +165,7 @@ input {
   opacity: 0.9;
   padding-top: 10px;
   padding-bottom: 10px;
+
 }
 
 .todo.completed {

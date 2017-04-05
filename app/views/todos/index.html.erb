@@ -6,6 +6,8 @@
       <%= f.hidden_field :complete, value: false %>
   <% end %>
   </div>
+
+  <%= will_paginate %>
   <ul>
     <% @todos.each do |todo|%>
         <li class = 'list'>
@@ -24,7 +26,7 @@
               <% end %>
             </div>
 
-            <div class="delete">
+            <div class = "delete" >
               <%= link_to todo_path(todo.id), method: :delete do %>
               <span class="icon">x</span>
               <% end %>
@@ -34,8 +36,7 @@
         </li>
     <% end %>
   </ul>
-
-
+  <%= will_paginate %>
 
     <div class = "count">
       <%= @todos.count %> item left
