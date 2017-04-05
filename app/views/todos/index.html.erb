@@ -1,0 +1,58 @@
+<h1>todos</h1>
+<div class="todos">
+  <div class = 'text'>
+  <%= form_for :todo, url: todos_path do |f| %>
+      <%= f.text_field :name, placeholder: 'What needs to be done?' , autofocus: true %>
+      <%= f.hidden_field :complete, value: false %>
+  <% end %>
+  </div>
+  <ul>
+    <% @todos.each do |todo|%>
+        <li class = 'list'>
+
+          <div class="todo <%= todo.complete ? 'completed' : '' %>">
+
+            <div class="complete">
+              <%= form_for todo, url: todo_path(todo.id) do |f|%>
+                  <%= f.check_box :complete, value: todo.complete, onchange:'changeTodoStatus(this)' %>
+              <% end %>
+            </div>
+
+            <div class="title">
+              <%= form_for todo, url: todo_path(todo.id) do |f| %>
+                  <%= f.text_field :name, autofocus: true %>
+              <% end %>
+            </div>
+
+            <div class="delete">
+              <%= link_to todo_path(todo.id), method: :delete do %>
+              <span class="icon">x</span>
+              <% end %>
+            </div>
+
+          </div>
+        </li>
+    <% end %>
+  </ul>
+
+
+
+    <div class = "count">
+      <%= @todos.count %> item left
+    </div>
+    <%= link_to "All", todos_path, class: "link_all" %>
+    <%= link_to "Active", todos_path(filter: 'false'), class: "link_active" %>
+    <%= link_to "Completed", todos_path(filter: 'true'), class: "link_completed" %>
+
+  <div class="clear_completed">
+     <%= link_to clear_completed_path, method: :delete do %>
+            <div class="clear">Clear completed</div>
+    <% end %>
+  </div>
+</div>
+
+
+
+
+
+
